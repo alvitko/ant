@@ -34,7 +34,7 @@
 <body>
 <div class="wrap" id="gameContainer">
   <h1>дорогой антон, вот твой подарок....</h1>
-  <p>Угадай предложение, открывая буквы и цифры. Подсказка: в ответе есть <b>цифры</b>.</p>
+  <p>Угадай предложение, открывая буквы.</p>
 
   <div id="sentence" class="sentence"></div>
   <div id="keyboard" class="keyboard"></div>
@@ -45,7 +45,7 @@
 <div id="overlay"><img id="overlayImg" src="аантон.png" alt="result"></div>
 
 <script>
-const TARGET = '10 занятий диджеинга от васи сайко и 5 занятий по фортепиано';
+const TARGET = 'Десять занятий диджеинга от Васи Сайко и пять занятий по фортепиано';
 const targetNorm = TARGET.toLowerCase();
 const sentenceEl = document.getElementById('sentence');
 const keyboardEl = document.getElementById('keyboard');
@@ -76,7 +76,7 @@ function renderSentence(){
   }
 }
 
-const alphabet = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя0123456789';
+const alphabet = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя';
 function initKeyboard(){
   keyboardEl.innerHTML = '';
   for(const ch of alphabet){
@@ -102,7 +102,7 @@ function handleGuess(ch, btn){
 
 function checkWin(){
   if(revealed.every((v,i)=>v||TARGET[i]===' ')){
-    statusEl.textContent='🎉 Вы угадали предложение!';
+    statusEl.textContent='Вы угадали предложение!';
     disableKeyboard();
     showOverlay();
   }
