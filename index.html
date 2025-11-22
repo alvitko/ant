@@ -17,6 +17,14 @@
       height:100%;
       overflow-x:hidden;
     }
+
+    /* ---------- ХЕДЕР ---------- */
+    .header img {
+      width: 100%;
+      display: block;
+      border-radius: 0 0 12px 12px;
+    }
+
     .wrap {
       max-width:95%;
       margin:32px auto;
@@ -53,19 +61,20 @@
       gap:6px;
       margin-top:20px;
     }
-   button.key {
-  padding:8px;
-  background:gray;
-  color:black;
-  border:2px solid black;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:clamp(14px,3vw,16px);
-}
 
-    button.key.used { background:#2d3545; color:var(--gray); cursor:not-allowed; }
-    button.key.correct { background:#2e6f3e; }
-    button.key.wrong { background:#6b2e2e; }
+    /* ---------- КНОПКИ СЕРЫЕ С ЧЁРНОЙ РАМКОЙ ---------- */
+    button.key {
+      padding:8px;
+      background:gray;
+      color:black;
+      border:2px solid black;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:clamp(14px,3vw,16px);
+    }
+    button.key.used { background:#d0d0d0; color:#666; cursor:not-allowed; }
+    button.key.correct { background:#2e6f3e; color:white; }
+    button.key.wrong { background:#6b2e2e; color:white; }
 
     .status { margin-top:16px; font-size:clamp(16px,4vw,18px); }
     .hint { margin-top:8px; color:#9fb0d8; font-size:clamp(12px,3vw,14px); }
@@ -83,6 +92,12 @@
   </style>
 </head>
 <body>
+
+  <!-- ХЕДЕР -->
+  <header class="header">
+    <img src="headerant.png" alt="header image">
+  </header>
+
   <div class="wrap" id="gameContainer">
     <h1>СУПЕР-ПОДАОК УЖЕ БЛИЗКО!</h1>
     <p>Угадайте предложение, открывая буквы.</p>
@@ -113,7 +128,6 @@
         const c = TARGET[i];
         const cell = document.createElement('div');
         cell.className = 'cell';
-        if(c===''){cell.classList.add('space'); cell.textContent=' ';}
         if(c===' '){cell.classList.add('space'); cell.textContent=' ';}
         cell.dataset.index=i;
         sentenceEl.appendChild(cell);
